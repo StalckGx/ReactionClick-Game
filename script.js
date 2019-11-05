@@ -19,12 +19,11 @@ function makeitem() {
     div.style.position = "absolute";
     div.style.left = Math.random() * boundary.width + "px";
     div.style.top = Math.random() * boundary.height + "px";
-    div.style.width = Math.random() * 10 + 40 + "px";
-    div.style.height = Math.random() * 10 + 40 + "px";
-    div.style.borderRadius = "10%";
+    div.style.width = Math.random() * 16 + 48 + "px";
+    div.style.height = Math.random() * 16 + 48 + "px";
     div.style.cursor = "pointer";
     div.style.backgroundColor = "#" + Math.random().toString(16).substr(-6);
-    div.style.border = "1px solid black";
+    div.style.border = "2px solid black";
     div.startTime = Date.now();
     
     container.appendChild(div);
