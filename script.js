@@ -11,10 +11,10 @@ startGame.addEventListener("click", function() {
     scoreArea.innerHTML = "";
 
     let randTime = Math.random() * 2000 + 1000;
-    setTimeout(makeitem, randTime);
+    setTimeout(makeItem, randTime);
 })
 
-function makeitem() {
+function makeItem() {
     let boundary = container.getBoundingClientRect();
     let div = document.createElement("div");
 
@@ -32,9 +32,15 @@ function makeitem() {
         let endTime = Date.now();
         let difference = (endTime - div.startTime) / 1000;
         scoreArea.innerHTML = "Clicked in " + difference + " seconds!";
-        startGame.style.display = "inline-block";
+        //startGame.style.display = "inline-block";
+        clearTimeout(div.timer);
+        makeItem();
         container.removeChild(div);
     })
     
+    div.timer = setTimeout(function() {
+        container.removeChild(div);
+        makeItem();
+    }, 1000)
     container.appendChild(div);
 }
